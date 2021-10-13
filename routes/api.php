@@ -20,7 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/transactions',[GatewayController::class,'transactions']);
-
-Route::get('/token',[GatewayController::class, 'apiAuth']);
-Route::get('/send-email', [PDFController::class, 'index']);
+Route::get('/send',[GatewayController::class, 'index']);

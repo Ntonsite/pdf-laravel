@@ -13,17 +13,13 @@ class PDFController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($data)
     {
-        $data = array(
-            'email'=> 'ntonsite.mwamlima@accessbank.co.tz',
-            'title'=> 'e-statement',
-            'other'=> 'DERM ELECTRICS ACCOUNT, P/BOX',
-            'body' => 'Dear customer please receive your e-statement'
-        );
-        
-        $pdf = PDF::loadView('emails.myTestMail', $data);
-        Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
+        $name = $data['name'];
+        $data['body'] = "Dear {$name} kindly receive your e-statement";
+        $data['title']= "E-Statement";
+        $pdf = PDF::loadView('emails.bStatementTemplate', $data);
+        Mail::send('emails.body', $data, function($message)use($data, $pdf) {
             $message->to($data["email"], $data["email"])
                     ->subject($data["title"])
                     ->attachData($pdf->output(),"e-statement.pdf");

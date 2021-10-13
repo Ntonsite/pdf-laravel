@@ -20,7 +20,7 @@ class CreateCustomersTable extends Migration
             $table->integer('Phone_number');
             $table->string('cEmail');
             $table->longText('Other_Information');
-            $table->unsignedBigInteger('Account_number');
+            $table->string('Account_number');
             $table->float('Balance');
             $table->string('Currency');
         });

@@ -7,13 +7,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <img src="http://localhost/leave/logo.png" alt="Bank Logo">
-            </div>
-            <div class="col-md-6">
-                <h5>{{$other}}</h5>
+                <h5>{{$body}}</h5>
             </div>
         </div>
-
     </div>
 </body>
 </html>
